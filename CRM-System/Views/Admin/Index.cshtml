@@ -1,0 +1,45 @@
+﻿@{
+    ViewData["Title"] = "Admin Dashboard";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Admin Dashboard</h2>
+
+<h3>Add Manager</h3>
+<form asp-action="AddManager" method="post">
+    <div class="form-group">
+        <label>Name:</label>
+        <input type="text" name="Name" required class="form-control" />
+    </div>
+    <div class="form-group">
+        <label>Email:</label>
+        <input type="email" name="Email" required class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-primary">Add Manager</button>
+</form>
+
+<h3>Managers List</h3>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var manager in Model.Managers)
+        {
+            <tr>
+                <td>@manager.Name</td>
+                <td>@manager.Email</td>
+                <td>
+                    <form asp-action="DeleteManager" method="post">
+                        <input type="hidden" name="id" value="@manager.Id" />
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
