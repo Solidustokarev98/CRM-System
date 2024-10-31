@@ -13,6 +13,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllersWithViews();
 
+//Была ошибка в строке подключения, поправил
 var connectionString = builder.Configuration.GetSection("Data:EventManagementDB:ConnectionString").Value;
 
 var connectionStringIdentity = builder.Configuration.GetSection("Data:CRMIdentity:ConnectionString").Value;
@@ -32,6 +33,7 @@ builder.Services.AddTransient<IManagerService, ManagerService>();
 builder.Services.AddTransient<IOrderService, OrderService>();
 builder.Services.AddTransient<IOrderRepository, OrderRepository>();
 
+//У вас не был реализован интерфейс в классе AdminService. Поправил
 builder.Services.AddTransient<IAdminService, AdminService>();
 
 builder.Services.AddScoped(SessionCart.GetCart);

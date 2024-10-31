@@ -11,10 +11,9 @@ namespace CRM_System.Db
         {
 
         }
+
         public DbSet<Manager> Managers { get; set; }
         public DbSet<Client> Clients { get; set; }
         public DbSet<Event> Events { get; set; }
-
-        
     }
 }
