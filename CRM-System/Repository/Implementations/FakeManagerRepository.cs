@@ -38,6 +38,7 @@ namespace CRM_System.Repository.Implementations
             },
         };
         }
+
         public void Save(Manager manager)
         {
             throw new NotImplementedException();

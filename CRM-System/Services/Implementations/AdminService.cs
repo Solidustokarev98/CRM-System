@@ -4,7 +4,7 @@ using CRM_System.Services.Interfaces;
 
 namespace CRM_System.Services.Implementations
 {
-    public class AdminService 
+    public class AdminService : IAdminService
     {
         private readonly IManagerRepository _manager;
 
@@ -27,6 +27,12 @@ namespace CRM_System.Services.Implementations
         public void SaveProduct(Manager manager)
         {
             _manager.Save(manager);
+        }
+
+        public void SaveManager(Manager manager)
+        { 
+            //Необходимо реализовать метод
+            throw new NotImplementedException();
         }
     }
 }
